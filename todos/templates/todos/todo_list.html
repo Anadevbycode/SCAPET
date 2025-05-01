@@ -1,0 +1,11 @@
+<h1>Lista de Tarefas</h1>
+<ul>
+    {% for todo in object_list %}
+    <li>
+        {{ todo.title }} - {{ todo.deadline|date:"d/m/Y" }}
+        <a href="{% url 'todo_update' todo.pk %}">Editar</a> | 
+        <a href="{% url 'todo_delete' todo.pk %}">Excluir</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'todo_create' %}">Criar Nova Tarefa</a>
